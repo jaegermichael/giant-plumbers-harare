@@ -1,0 +1,28 @@
+/* Giant Plumbers brand palette, drawn from the fleet graphics and uniforms. */
+:root {
+  --ink: #08111b;
+  --paper: #f3f5f7;
+  --yellow: #df2027;
+  --blue: #123f6d;
+  --blue-bright: #1f5f99;
+  --muted: #9ba6b2;
+}
+
+.brand-mark,
+.btn.primary { color: #fff; }
+
+.trust-strip {
+  background: var(--blue);
+  color: #fff;
+  border-top: 4px solid var(--yellow);
+}
+
+.trust-strip div { border-right-color: rgba(255, 255, 255, .2); }
+.services { background: linear-gradient(135deg, #08111b 0%, #0e2943 100%); }
+.process { background: #e3e9ef; border-top: 5px solid var(--blue); }
+.cta { background: var(--blue); }
+footer { background: #07111b; border-top: 5px solid var(--yellow); }
+
+@media (max-width: 850px) {
+  .float-call { color: #fff; }
+}
