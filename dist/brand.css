@@ -8,6 +8,8 @@
   --muted: #9ba6b2;
 }
 
+html, body { max-width: 100%; overflow-x: hidden; }
+
 .brand-mark,
 .btn.primary { color: #fff; }
 
@@ -32,6 +34,28 @@ footer { background: #07111b; box-shadow: inset 0 3px 0 var(--yellow); }
 footer small, .footer-brand p { color: #a9b4c0; }
 .copyright { color: #a9b4c0; }
 .services .service-list span, .services .service-list b { color: #ff7178; }
+
+.whatsapp-float {
+  position: fixed;
+  z-index: 30;
+  right: max(22px, env(safe-area-inset-right));
+  bottom: max(22px, env(safe-area-inset-bottom));
+  min-height: 58px;
+  padding: 0 20px 0 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 15px;
+  background: #128c4e;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 12px 30px rgba(5, 28, 18, .3);
+  transition: transform 220ms cubic-bezier(.16,1,.3,1), background-color 180ms ease, box-shadow 220ms ease;
+}
+.whatsapp-float svg { width: 29px; height: 29px; flex: 0 0 auto; }
+.whatsapp-float:hover { transform: translateY(-4px); background: #0f7d45; box-shadow: 0 16px 36px rgba(5, 28, 18, .36); }
+.whatsapp-float:active { transform: translateY(-1px) scale(.98); }
 
 /* The entrance follows the visual language of pipes being laid, then connected. */
 .hero-bg { clip-path: inset(0 100% 0 0); }
@@ -65,10 +89,36 @@ footer small, .footer-brand p { color: #a9b4c0; }
 @keyframes copy-in { to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 850px) {
-  .float-call { color: #fff; }
+  .float-call { display: none; }
   .brand-logo { width: 172px; }
   .footer-logo { width: 220px; }
   .developer-credit { display: block !important; margin: 12px 0 0; }
+  .whatsapp-float { right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); min-height: 56px; padding: 0 17px 0 13px; }
+}
+
+@media (max-width: 390px) {
+  .whatsapp-float { width: 56px; padding: 0; justify-content: center; border-radius: 15px; }
+  .whatsapp-float span { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  .brand-logo { width: 150px; }
+  .hero h1 { font-size: 42px; letter-spacing: -.03em; }
+  .hero-copy { left: 18px; right: 18px; max-width: calc(100vw - 36px); }
+  .hero-copy > p:not(.eyebrow) { font-size: 15px; line-height: 1.55; }
+  .hero-actions { gap: 16px; margin-top: 26px; }
+  .btn { min-height: 54px; padding-left: 18px; padding-right: 18px; }
+  .trust-strip { padding-left: 8px; padding-right: 8px; }
+  .trust-strip strong { font-size: 14px; }
+  .trust-strip span { font-size: 11px; }
+}
+
+@media (min-width: 851px) and (max-width: 1100px) {
+  .intro { grid-template-columns: .45fr 1.35fr .8fr; gap: 3vw; }
+  .site-header { padding-left: 3vw; padding-right: 3vw; }
+  nav { gap: 20px; }
+}
+
+@media (min-width: 1600px) {
+  .site-header, .hero-copy, .intro, .services, .work, .process, footer { max-width: 1600px; margin-left: auto; margin-right: auto; }
+  .hero-copy { left: max(7vw, calc((100vw - 1600px) / 2 + 70px)); }
 }
 
 @media (prefers-reduced-motion: reduce) {
