@@ -1,5 +1,7 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+requestAnimationFrame(() => document.body.classList.add('page-ready'));
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
